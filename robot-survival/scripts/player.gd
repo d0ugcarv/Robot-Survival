@@ -13,6 +13,9 @@ var is_alive: bool = true
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var hurt_box: Area2D = $HurtBox
+
+
 func _ready() -> void:
 	health_max = health
 	
@@ -36,11 +39,10 @@ func _physics_process(delta: float) -> void:
 
 func update_animation() -> void:
 	# invert direction do sprite righ to left
-	if direction.y == 0:
-		if direction.x > 0:
-			animated_sprite.flip_h = true
-		elif direction.x < 0:
-			animated_sprite.flip_h = false
+	if direction.x > 0:
+		animated_sprite.flip_h = true
+	elif direction.x < 0:
+		animated_sprite.flip_h = false
 	
 		# manage sprite animation	
 	if direction.y != 0 or direction.x != 0:
@@ -52,7 +54,7 @@ func update_health(value: float) -> void:
 	if health <= health_max and health >= 0.0:
 		if (health + value) > health_max:
 			health = health_max
-		elif (health + value) < 0:
+		elif (health + value) <= 0:
 			health = 0.0
 			
 			die()
@@ -65,3 +67,8 @@ func die() -> void:
 	is_alive = false
 	
 	animation_player.play("death")
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if !hurt_box.is_invincible:
+		update_health(body.attack_damage)
