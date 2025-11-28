@@ -1,14 +1,14 @@
 [gd_scene load_steps=37 format=3 uid="uid://dl6ll3m7v7h15"]
 
-[ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/player.gd" id="1_qu7f3"]
+[ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/caracters/player/elec_drone_idle.png" id="2_dyb74"]
-[ext_resource type="Material" uid="uid://cmw187ncx4bmj" path="res://shaders/coloren_material.tres" id="2_rng84"]
+[ext_resource type="Material" uid="uid://cmw187ncx4bmj" path="res://shaders/redden.tres" id="2_rng84"]
 [ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/caracters/player/elec_drone_death.png" id="2_uem3h"]
 [ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/caracters/player/elec_drone_charging.png" id="3_dyb74"]
 [ext_resource type="Texture2D" uid="uid://byfxqp6xhmkwx" path="res://assets/caracters/player/explosion.png" id="3_iso5f"]
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/caracters/player/drone_shadow.png" id="4_mhcn4"]
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/hurt_box.tscn" id="8_j3s82"]
-[ext_resource type="Shader" uid="uid://cd1dnk68w1u23" path="res://shaders/player.gdshader" id="9_ytugt"]
+[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/attack.gd" id="10_yasf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcq65"]
 atlas = ExtResource("2_uem3h")
@@ -310,16 +310,13 @@ _data = {
 &"death": SubResource("Animation_85cvf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yasf5"]
-resource_local_to_scene = true
-shader = ExtResource("9_ytugt")
-shader_parameter/whiten = false
-shader_parameter/redden = false
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3s82"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yasf5"]
+radius = 331.0015
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -371,12 +368,35 @@ speed_scale = 1.5
 
 [node name="HurtBox" parent="." instance=ExtResource("8_j3s82")]
 collision_mask = 4
-coloren_material = SubResource("ShaderMaterial_yasf5")
+coloren_material = ExtResource("2_rng84")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_j3s82")
 
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_yasf5")
+
+[node name="Attack" type="Node2D" parent="."]
+script = ExtResource("10_yasf5")
+
+[node name="LaserTimer" type="Timer" parent="Attack"]
+wait_time = 1.5
+
+[node name="LaserAttackTimer" type="Timer" parent="Attack/LaserTimer"]
+wait_time = 0.075
+
+[connection signal="attack_stop" from="." to="Attack" method="_on_player_attack_stop"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_exited"]
+[connection signal="timeout" from="Attack/LaserTimer" to="Attack" method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="Attack/LaserTimer/LaserAttackTimer" to="Attack" method="_on_laser_attack_timer_timeout"]
 
 [editable path="HurtBox"]

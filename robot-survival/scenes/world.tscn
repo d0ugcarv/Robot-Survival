@@ -210,6 +210,12 @@ sources/0 = SubResource("TileSetAtlasSource_4wyf3")
 
 [node name="World" type="Node2D"]
 
+[node name="TigerSickle" parent="." instance=ExtResource("3_k0juu")]
+position = Vector2(508, 255)
+
+[node name="TigerSickle2" parent="." instance=ExtResource("3_k0juu")]
+position = Vector2(495, 478)
+
 [node name="Enviroment" type="Node2D" parent="."]
 
 [node name="Floor" type="TileMapLayer" parent="Enviroment"]
@@ -223,8 +229,7 @@ tile_map_data = PackedByteArray("AAAAABkAAAAGAAEAAAABACIAAAACAAEAAAACACYAAAACAAE
 tile_set = SubResource("TileSet_k0juu")
 
 [node name="TigerSickle" parent="Enviroment" instance=ExtResource("3_k0juu")]
-position = Vector2(661, 412)
-speed = 3000.0
+position = Vector2(866, 288)
 
 [node name="Player" parent="Enviroment" instance=ExtResource("3_4wyf3")]
 y_sort_enabled = true

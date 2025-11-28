@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cmw187ncx4bmj"]
+
+[ext_resource type="Shader" uid="uid://cd1dnk68w1u23" path="res://shaders/redden.gdshader" id="1_olva8"]
+
+[resource]
+shader = ExtResource("1_olva8")
+shader_parameter/redden = false
