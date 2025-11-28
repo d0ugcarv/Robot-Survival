@@ -14,6 +14,9 @@ var is_alive: bool = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var hurt_box: Area2D = $HurtBox
+var invincibility_duration: float = 1.5
+
+signal attack_stop
 
 
 func _ready() -> void:
@@ -66,9 +69,13 @@ func update_health(value: float) -> void:
 func die() -> void:
 	is_alive = false
 	
+	emit_signal("attack_stop")
+	
 	animation_player.play("death")
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if !hurt_box.is_invincible:
 		update_health(body.attack_damage)
+		
+		hurt_box.start_invincibility(invincibility_duration)
