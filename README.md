@@ -4,7 +4,7 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 ## Authors and acknowledgment
 
 <details>
-<summary> Assets fonts
+<summary> Assets fonts </summary><p>
 
 https://wenrexa.itch.io/laser2020
 - 01.png
@@ -26,5 +26,5 @@ https://kevins-moms-house.itch.io/fantasy
 - forest_.png
 - forest_ [resources].png
 
-</details>
+</p></details>
 
