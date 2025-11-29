@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://ncirp63swaqn"]
 
-[ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/tiger_sickle.gd" id="1_80nil"]
+[ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/enemy.gd" id="1_80nil"]
 [ext_resource type="Texture2D" uid="uid://6ikuc4kfjw4n" path="res://assets/caracters/enemy/tiger-sickle.png" id="1_prdsq"]
 [ext_resource type="Material" uid="uid://bn1hjxmvdaayl" path="res://shaders/whiten.tres" id="2_crs4b"]
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/caracters/player/drone_shadow.png" id="3_e0y14"]
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/hurt_box.tscn" id="3_l80s2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nil"]
-radius = 3.5
-height = 10.0
+radius = 4.0
+height = 11.0
 
 [sub_resource type="Animation" id="Animation_80nil"]
 length = 0.001
@@ -49,32 +49,32 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0y14"]
 radius = 9.0
-height = 24.0
+height = 26.0
 
 [node name="TigerSickle" type="CharacterBody2D" groups=["enemy"]]
-z_index = 1
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 platform_floor_layers = 4294967294
 script = ExtResource("1_80nil")
-health = 10.0
-speed = 3000.0
-attack_damage = -10.0
+health = 4.0
+speed = 1800.0
+attack_damage = -5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 material = ExtResource("2_crs4b")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_prdsq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-z_index = -1
+y_sort_enabled = true
 position = Vector2(0, 4)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_e0y14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_80nil")
 
@@ -86,7 +86,6 @@ speed_scale = 2.0
 
 [node name="HurtBox" parent="." instance=ExtResource("3_l80s2")]
 collision_mask = 8
-coloren_material = ExtResource("2_crs4b")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CapsuleShape2D_e0y14")
