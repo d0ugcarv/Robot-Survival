@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @export var health: float
 @export var speed: float
@@ -15,6 +15,9 @@ var direction_to_player: Vector2 = Vector2.ZERO
 
 @onready var hurt_box: Area2D = $HurtBox
 
+var damage_indicator: PackedScene = preload("res://scenes/damage_indicator.tscn")
+var indicator: Node2D
+
 
 func _ready() -> void:
 	health_max = health
@@ -30,7 +33,6 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 
-		
 
 func update_animation() -> void:
 	# invert direction do sprite righ to lefts
@@ -63,7 +65,17 @@ func die() -> void:
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if !hurt_box.is_invincible:
-		update_health(area.attack_damage)
+		update_health(-area.attack_damage)
+		
+		spwan_attack_damage(area.attack_damage)
 		
 		area.enemy_hit(1)
+
+func spwan_attack_damage(damage: float) -> void:
+	indicator = damage_indicator.instantiate()
 	
+	indicator.position = global_position
+	
+	get_tree().current_scene.add_child(indicator)
+	
+	indicator.play_damage(damage)

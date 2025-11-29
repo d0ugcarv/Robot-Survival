@@ -3,5 +3,6 @@
 [ext_resource type="Shader" uid="uid://clebu8pfgfjfl" path="res://shaders/withen.gdshader" id="1_pgqvu"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_pgqvu")
 shader_parameter/whiten = false

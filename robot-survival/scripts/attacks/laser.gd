@@ -1,10 +1,10 @@
 extends Area2D
 
-var level: float = 1.0
-var penetretion: float = 1.0
-var speed: float = 300.0
-var attack_damage: float = 5.0
-var knock_back: float = 100.0
+var level: float 
+var penetretion: float 
+var speed: float 
+var attack_damage: float 
+var knock_back: float 
 
 var attack_size: float = 1.0
 
@@ -25,13 +25,18 @@ func _ready() -> void:
 		1.0:
 			level = 1.0
 			penetretion = 1.0
-			speed = 300.0
-			attack_damage = -2.0
+			speed = 400.0
+			attack_damage = 5.0
 			knock_back = 100.0
 
 	tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(0.4, 0.4) * attack_size, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(
+		self, "scale", Vector2(0.4, 0.4) * attack_size, 1
+		).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	
 	tween.play()
+
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta

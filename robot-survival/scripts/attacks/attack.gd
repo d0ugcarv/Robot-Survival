@@ -8,17 +8,12 @@ var laser: PackedScene = preload("res://scenes/attacks/laser.tscn")
 #Laser
 var laser_ammo: float = 0.0
 var laser_baseamno: float = 1.0
-var laser_attack_speed: float = 1.5
+var laser_attack_speed: float = 1
 var laser_level: float = 1
 var laser_attack: Area2D
 
 #Enemy Related
-var enemy_close: Array = []
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	attack()
+var enemy_close: Array[Enemy] = []
 
 
 func attack() -> void:
@@ -31,7 +26,7 @@ func attack() -> void:
 
 func _on_laser_timer_timeout() -> void:
 	laser_ammo += laser_baseamno
-	
+
 	laser_attack_timer.start()
 
 
@@ -56,19 +51,21 @@ func _on_laser_attack_timer_timeout() -> void:
 		
 func get_random_target() -> Vector2:
 	if enemy_close.size() <= 0:
-		laser_timer.stop()
 		
 		return Vector2.UP
 	else:
 		return enemy_close.pick_random().global_position
 
 
-func _on_enemy_detection_area_body_entered(body: Node2D) -> void:
+func _on_enemy_detection_area_body_entered(body: Enemy) -> void:
+	if enemy_close.is_empty():
+		attack()
+	
 	if not enemy_close.has(body):
 		enemy_close.append(body)
 
 
-func _on_enemy_detection_area_body_exited(body: Node2D) -> void:
+func _on_enemy_detection_area_body_exited(body: Enemy) -> void:
 	if enemy_close.has(body):
 		enemy_close.erase(body)
 
