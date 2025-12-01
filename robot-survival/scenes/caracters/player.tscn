@@ -1,13 +1,13 @@
 [gd_scene load_steps=37 format=3 uid="uid://dl6ll3m7v7h15"]
 
 [ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
-[ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/caracters/player/elec_drone_idle.png" id="2_dyb74"]
+[ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/sprites/caracters/player/elec_drone_idle.png" id="2_dyb74"]
 [ext_resource type="Material" uid="uid://cmw187ncx4bmj" path="res://shaders/redden.tres" id="2_rng84"]
-[ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/caracters/player/elec_drone_death.png" id="2_uem3h"]
-[ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/caracters/player/elec_drone_charging.png" id="3_dyb74"]
-[ext_resource type="Texture2D" uid="uid://byfxqp6xhmkwx" path="res://assets/caracters/player/explosion.png" id="3_iso5f"]
-[ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/caracters/player/drone_shadow.png" id="4_mhcn4"]
-[ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/hurt_box.tscn" id="8_j3s82"]
+[ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/sprites/caracters/player/elec_drone_death.png" id="2_uem3h"]
+[ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/sprites/caracters/player/elec_drone_charging.png" id="3_dyb74"]
+[ext_resource type="Texture2D" uid="uid://byfxqp6xhmkwx" path="res://assets/sprites/caracters/player/explosion.png" id="3_iso5f"]
+[ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/sprites/caracters/player/drone_shadow.png" id="4_mhcn4"]
+[ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="8_j3s82"]
 [ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/attack.gd" id="10_yasf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcq65"]
@@ -332,7 +332,7 @@ radius = 133.00375
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 23
 motion_mode = 1
 platform_floor_layers = 4294967294
 script = ExtResource("1_qu7f3")
@@ -353,6 +353,7 @@ position = Vector2(0, 7)
 texture = ExtResource("4_mhcn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_mhcn4")
@@ -402,10 +403,8 @@ shape = SubResource("CircleShape2D_yasf5")
 script = ExtResource("10_yasf5")
 
 [node name="LaserTimer" type="Timer" parent="Attack"]
-wait_time = 1.5
 
 [node name="LaserAttackTimer" type="Timer" parent="Attack/LaserTimer"]
-wait_time = 0.075
 
 [connection signal="attack_stop" from="." to="Attack" method="_on_player_attack_stop"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

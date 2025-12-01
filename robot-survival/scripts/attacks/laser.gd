@@ -25,7 +25,7 @@ func _ready() -> void:
 		1.0:
 			level = 1.0
 			penetretion = 1.0
-			speed = 400.0
+			speed = 200.0
 			attack_damage = 5.0
 			knock_back = 100.0
 

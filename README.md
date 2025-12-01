@@ -26,5 +26,21 @@ https://kevins-moms-house.itch.io/fantasy
 - forest_.png
 - forest_ [resources].png
 
+https://laredgames.itch.io/gems-coins-free
+- spr_coin_azu.png
+
+https://heltonyan.itch.io/pixelcombat
+- DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav
+
+https://free-game-assets.itch.io/free-gui-for-cyberpunk-pixel-art
+- Logo3.png used as base for:
+    - logo3_over.png
+    - logo3_under.png
+    - logo3_progress.png
+- CyberpunkCraftpixPixel.otf
+
+https://frodoundead.itch.io/skull-bones
+- Skull&Bones - FrodoUndead.png
+
 </p></details>
 
