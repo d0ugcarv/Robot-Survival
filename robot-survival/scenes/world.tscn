@@ -244,10 +244,12 @@ spawns = Array[ExtResource("4_i7141")]([SubResource("Resource_i7141")])
 
 [node name="HUD" parent="Enviroment" instance=ExtResource("6_4mrxx")]
 
+[node name="Timer" type="Timer" parent="Enviroment"]
+
 [node name="Player" parent="Enviroment" instance=ExtResource("3_4wyf3")]
 material = ExtResource("6_i7141")
 position = Vector2(746, 419)
 speed = 5000.0
 
 [node name="Camera2D" type="Camera2D" parent="Enviroment/Player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)

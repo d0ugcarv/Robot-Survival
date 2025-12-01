@@ -5,10 +5,10 @@ var laser: PackedScene = preload("res://scenes/attacks/laser.tscn")
 @onready var laser_timer: Timer = $LaserTimer
 @onready var laser_attack_timer: Timer = $LaserTimer/LaserAttackTimer
 
-#Laser
+#Lasersss
 var laser_ammo: float = 0.0
 var laser_baseamno: float = 1.0
-@export var laser_attack_speed: float = 0.8
+var laser_attack_speed: float = 0.8
 var laser_level: float = 1.0
 var laser_attack: Area2D
 
@@ -34,7 +34,7 @@ func _on_laser_timer_timeout() -> void:
 
 func _on_laser_attack_timer_timeout() -> void:
 	if enemy_close.size() == 0:
-		_on_player_attack_stop()
+		_on_player_stop_attack()
 	
 	if laser_ammo > 0:
 		laser_attack = laser.instantiate()
@@ -75,5 +75,5 @@ func _on_enemy_detection_area_body_exited(body: Enemy) -> void:
 		enemy_close.erase(body)
 
 
-func _on_player_attack_stop() -> void:
+func _on_player_stop_attack() -> void:
 	laser_timer.stop()

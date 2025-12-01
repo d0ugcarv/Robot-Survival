@@ -1,25 +1,78 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm1dexfh6e48t"]
+[gd_scene load_steps=7 format=3 uid="uid://bm1dexfh6e48t"]
 
 [ext_resource type="Script" uid="uid://irjg0wlnaa56" path="res://scripts/ui/hud.gd" id="1_136eg"]
 [ext_resource type="Texture2D" uid="uid://dbs2vjfaqwj5o" path="res://assets/sprites/ui/logo3_under.png" id="1_y5tme"]
 [ext_resource type="Texture2D" uid="uid://fgaappjwloc4" path="res://assets/sprites/ui/logo3_over.png" id="2_18exe"]
 [ext_resource type="Texture2D" uid="uid://cqbawj4cjyb70" path="res://assets/sprites/ui/logo3_progress.png" id="3_0jeyp"]
 [ext_resource type="FontFile" uid="uid://d0xoqdidjl0k2" path="res://assets/sprites/ui/CyberpunkCraftpixPixel.otf" id="4_18exe"]
+[ext_resource type="Texture2D" uid="uid://dowafd7yl74lo" path="res://assets/sprites/ui/Skull&Bones - FrodoUndead.png" id="6_oj5la"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_136eg")
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="."]
-offset_top = 2.0
-offset_right = 1024.0
-offset_bottom = 83.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_right = 508.0
+offset_bottom = 81.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 texture_under = ExtResource("1_y5tme")
 texture_over = ExtResource("2_18exe")
 texture_progress = ExtResource("3_0jeyp")
 
-[node name="LevelDisplay" type="Label" parent="."]
-offset_left = 900.0
-offset_top = 21.0
-offset_right = 1002.0
-offset_bottom = 44.0
+[node name="LevelDisplay" type="Label" parent="ExperienceBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 19.0
+offset_right = -15.0
+offset_bottom = 37.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("4_18exe")
+text = "Level: 1"
+text_direction = 2
+
+[node name="TimerDisplay" type="Label" parent="ExperienceBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = 25.0
+offset_right = 67.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_18exe")
+theme_override_font_sizes/font_size = 32
+text = "00 : 00"
+horizontal_alignment = 1
+
+[node name="EnemyDeathCounter" type="Label" parent="ExperienceBar"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 70.5
+offset_right = 795.0
+offset_bottom = 104.5
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("4_18exe")
+theme_override_font_sizes/font_size = 32
+text = "1223"
+horizontal_alignment = 2
+text_direction = 2
+
+[node name="Skull&bonesFrodoUndead" type="Sprite2D" parent="ExperienceBar/EnemyDeathCounter"]
+position = Vector2(101, 15.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_oj5la")
+hframes = 4
+vframes = 6
+frame = 18

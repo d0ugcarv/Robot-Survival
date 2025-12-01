@@ -25,9 +25,9 @@ var last_direction: Vector2 = Vector2.ZERO
 
 # damage to de player
 @onready var hurt_box: Area2D = $HurtBox
-var invincibility_duration: float = 1.5
+var invincibility_duration: float = 0.5
 
-signal attack_stop
+signal stop_attack
 
 
 func _ready() -> void:
@@ -93,7 +93,6 @@ func experience_update(new_expirience: float) -> void:
 		
 		Global.level_counter(level, experience_to_next_level)
 	
-	print(str(experience_to_next_level) + " - " + str(experience))
 	Global.expereince_update(experience)
 
 
@@ -104,7 +103,7 @@ func next_level_experience() -> float:
 func die() -> void:
 	is_alive = false
 	
-	emit_signal("attack_stop")
+	emit_signal("stop_attack")
 	
 	animation_player.play("death")
 
