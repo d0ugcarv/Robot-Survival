@@ -406,7 +406,7 @@ script = ExtResource("10_yasf5")
 
 [node name="LaserAttackTimer" type="Timer" parent="Attack/LaserTimer"]
 
-[connection signal="attack_stop" from="." to="Attack" method="_on_player_attack_stop"]
+[connection signal="stop_attack" from="." to="Attack" method="_on_player_stop_attack"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_exited"]
