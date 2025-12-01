@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://luq4qx7s1mnu"
+path="res://.godot/imported/DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav-ffc7353ee49abea72a0f9e1ad5d1cea5.sample"
+
+[deps]
+
+source_file="res://assets/sfx/itens/DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav"
+dest_files=["res://.godot/imported/DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav-ffc7353ee49abea72a0f9e1ad5d1cea5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

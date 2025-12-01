@@ -15,8 +15,10 @@ var direction_to_player: Vector2 = Vector2.ZERO
 
 @onready var hurt_box: Area2D = $HurtBox
 
-var damage_indicator: PackedScene = preload("res://scenes/damage_indicator.tscn")
+var damage_indicator: PackedScene = preload("res://scenes/utils/damage_indicator.tscn")
 var indicator: Node2D
+
+@onready var drop_item: DropItens = $DropItem
 
 
 func _ready() -> void:
@@ -60,6 +62,10 @@ func update_health(value: float) -> void:
 func die() -> void:
 	is_alive = false
 	
+	Global.enemies_kill_counter()
+	
+	drop_item.drop_item()
+	
 	queue_free()
 
 
@@ -70,6 +76,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		spwan_attack_damage(area.attack_damage)
 		
 		area.enemy_hit(1)
+
 
 func spwan_attack_damage(damage: float) -> void:
 	indicator = damage_indicator.instantiate()

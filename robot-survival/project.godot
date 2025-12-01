@@ -15,6 +15,10 @@ run/main_scene="uid://b28g5beccaidh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=1024
@@ -24,8 +28,9 @@ window/size/viewport_height=768
 
 attack=""
 player=""
-enemy=""
 trees=""
+itens=""
+enemies=""
 
 [input]
 
@@ -56,6 +61,7 @@ move_down={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="attack"
+2d_physics/layer_5="itens"
 
 [rendering]
 

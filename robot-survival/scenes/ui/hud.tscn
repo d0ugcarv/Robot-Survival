@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm1dexfh6e48t"]
+
+[ext_resource type="Script" uid="uid://irjg0wlnaa56" path="res://scripts/ui/hud.gd" id="1_136eg"]
+[ext_resource type="Texture2D" uid="uid://dbs2vjfaqwj5o" path="res://assets/sprites/ui/logo3_under.png" id="1_y5tme"]
+[ext_resource type="Texture2D" uid="uid://fgaappjwloc4" path="res://assets/sprites/ui/logo3_over.png" id="2_18exe"]
+[ext_resource type="Texture2D" uid="uid://cqbawj4cjyb70" path="res://assets/sprites/ui/logo3_progress.png" id="3_0jeyp"]
+[ext_resource type="FontFile" uid="uid://d0xoqdidjl0k2" path="res://assets/sprites/ui/CyberpunkCraftpixPixel.otf" id="4_18exe"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_136eg")
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="."]
+offset_top = 2.0
+offset_right = 1024.0
+offset_bottom = 83.0
+texture_under = ExtResource("1_y5tme")
+texture_over = ExtResource("2_18exe")
+texture_progress = ExtResource("3_0jeyp")
+
+[node name="LevelDisplay" type="Label" parent="."]
+offset_left = 900.0
+offset_top = 21.0
+offset_right = 1002.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("4_18exe")
