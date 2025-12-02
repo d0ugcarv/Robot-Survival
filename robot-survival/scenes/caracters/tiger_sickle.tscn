@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ncirp63swaqn"]
+[gd_scene load_steps=14 format=3 uid="uid://ncirp63swaqn"]
 
 [ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/enemy.gd" id="1_80nil"]
 [ext_resource type="Texture2D" uid="uid://6ikuc4kfjw4n" path="res://assets/sprites/caracters/enemy/tiger-sickle.png" id="1_prdsq"]
@@ -53,6 +53,9 @@ _data = {
 radius = 9.0
 height = 26.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0aqah"]
+radius = 16.0
+
 [node name="TigerSickle" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 7
@@ -64,18 +67,19 @@ speed = 1800.0
 attack_damage = -5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 y_sort_enabled = true
 material = ExtResource("2_crs4b")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_prdsq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(0, 4)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_e0y14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_80nil")
 
@@ -86,6 +90,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="HurtBox" parent="." instance=ExtResource("3_l80s2")]
+visible = false
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
@@ -95,6 +100,15 @@ shape = SubResource("CapsuleShape2D_e0y14")
 item_drop = Array[PackedScene]([ExtResource("7_0aqah"), null])
 item_drop_chance = Array[float]([60.0, 40.0])
 
+[node name="KnockBackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockBackArea"]
+shape = SubResource("CircleShape2D_0aqah")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="KnockBackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="KnockBackArea" to="." method="_on_area_2d_body_exited"]
 
 [editable path="HurtBox"]

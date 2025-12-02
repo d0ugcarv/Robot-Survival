@@ -3,5 +3,6 @@
 [ext_resource type="Shader" uid="uid://cd1dnk68w1u23" path="res://shaders/redden.gdshader" id="1_olva8"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_olva8")
 shader_parameter/redden = false

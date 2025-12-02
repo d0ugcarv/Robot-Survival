@@ -21,6 +21,11 @@ var indicator: Node2D
 @onready var drop_item: DropItens = $DropItem
 
 
+var knockback_on: bool = false
+var knockback_force: float = 150.0
+var knockback: Vector2
+
+
 func _ready() -> void:
 	health_max = health
 
@@ -29,7 +34,10 @@ func _physics_process(delta: float) -> void:
 	if is_alive and player != null:
 		direction_to_player = (player.position - position).normalized()
 		
-		velocity = direction_to_player * speed * delta
+		if knockback_on:
+			velocity += knockback * delta
+		else:
+			velocity = direction_to_player * speed * delta
 		
 		update_animation()
 		
@@ -86,3 +94,13 @@ func spwan_attack_damage(damage: float) -> void:
 	get_tree().current_scene.add_child(indicator)
 	
 	indicator.play_damage(damage)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	knockback_on = true
+	
+	knockback = -global_position.direction_to(body.position) * knockback_force
+
+
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	knockback_on = false

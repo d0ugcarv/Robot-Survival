@@ -11,6 +11,7 @@ var target: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var tween: Tween 
 var attack_size: float = 1.0

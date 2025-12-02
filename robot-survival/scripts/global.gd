@@ -16,8 +16,6 @@ signal expereince_bar_update(new_experience:float)
 signal level_counter_update(new_level: float, experience_to_next_level: float)
 signal enemies_kill_counter_update(new_enemies_kill: float)
 
-@onready var player: Player = $Enviroment/Player
-
 
 func _ready() -> void:
 	timer = Timer.new()
