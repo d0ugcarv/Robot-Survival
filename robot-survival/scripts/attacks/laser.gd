@@ -1,12 +1,11 @@
 extends Area2D
 
-var level: float 
+var level: float = 1
 var penetretion: float 
 var speed: float 
 var attack_damage: float 
-var knock_back: float 
 
-var attack_size: float = 1.0
+var knock_back: float 
 
 var target: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
@@ -14,8 +13,9 @@ var direction: Vector2 = Vector2.ZERO
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
 var tween: Tween 
+var attack_size: float = 1.0
 
-
+var counter = 0.0
 func _ready() -> void:
 	direction = global_position.direction_to(target)
 	
@@ -27,7 +27,6 @@ func _ready() -> void:
 			penetretion = 1.0
 			speed = 200.0
 			attack_damage = 5.0
-			knock_back = 100.0
 
 	tween = create_tween()
 	
@@ -42,10 +41,10 @@ func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
 
-func enemy_hit(charge: float = 1.0) -> void:
-	penetretion -= charge 
-	
-	if penetretion <= 0:
+func hitbox_body_entered() -> void:
+	penetretion -= 1.0
+
+	if penetretion <= 0.0:
 		queue_free()
 
 

@@ -73,9 +73,9 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if !hurt_box.is_invincible:
 		update_health(-area.attack_damage)
 		
-		spwan_attack_damage(area.attack_damage)
+		area.hitbox_body_entered()
 		
-		area.enemy_hit(1)
+		spwan_attack_damage(area.attack_damage)
 
 
 func spwan_attack_damage(damage: float) -> void:
