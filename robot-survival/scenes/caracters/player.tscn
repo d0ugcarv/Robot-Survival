@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dl6ll3m7v7h15"]
+[gd_scene load_steps=39 format=3 uid="uid://dl6ll3m7v7h15"]
 
 [ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/sprites/caracters/player/elec_drone_idle.png" id="2_dyb74"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://byfxqp6xhmkwx" path="res://assets/sprites/caracters/player/explosion.png" id="3_iso5f"]
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/sprites/caracters/player/drone_shadow.png" id="4_mhcn4"]
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="8_j3s82"]
-[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/attack.gd" id="10_yasf5"]
+[ext_resource type="Script" uid="uid://qls0owxdlayb" path="res://scripts/utils/enemy_detection_area.gd" id="9_fcq65"]
+[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/laser_attack.gd" id="10_yasf5"]
+[ext_resource type="Script" uid="uid://dfgl3nojn7wfs" path="res://scripts/attacks/star_attack.gd" id="11_nlopc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcq65"]
 atlas = ExtResource("2_uem3h")
@@ -337,7 +339,7 @@ motion_mode = 1
 platform_floor_layers = 4294967294
 script = ExtResource("1_qu7f3")
 health = 100.0
-speed = 1800.0
+speed = 4000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -353,7 +355,6 @@ position = Vector2(0, 7)
 texture = ExtResource("4_mhcn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_mhcn4")
@@ -395,22 +396,28 @@ shape = SubResource("CircleShape2D_j3s82")
 collision_layer = 0
 collision_mask = 4
 monitorable = false
+script = ExtResource("9_fcq65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_yasf5")
 
-[node name="Attack" type="Node2D" parent="."]
+[node name="Attacks" type="Node2D" parent="."]
+
+[node name="LaserAttack" type="Node2D" parent="Attacks"]
 script = ExtResource("10_yasf5")
 
-[node name="LaserTimer" type="Timer" parent="Attack"]
+[node name="LaserTimer" type="Timer" parent="Attacks/LaserAttack"]
 
-[node name="LaserAttackTimer" type="Timer" parent="Attack/LaserTimer"]
+[node name="LaserAttackTimer" type="Timer" parent="Attacks/LaserAttack/LaserTimer"]
 
-[connection signal="stop_attack" from="." to="Attack" method="_on_player_stop_attack"]
+[node name="StarAttack" type="Node2D" parent="Attacks"]
+script = ExtResource("11_nlopc")
+
+[connection signal="stop_attack" from="." to="Attacks/LaserAttack" method="_on_player_stop_attack"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
-[connection signal="body_entered" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_entered"]
-[connection signal="body_exited" from="EnemyDetectionArea" to="Attack" method="_on_enemy_detection_area_body_exited"]
-[connection signal="timeout" from="Attack/LaserTimer" to="Attack" method="_on_laser_timer_timeout"]
-[connection signal="timeout" from="Attack/LaserTimer/LaserAttackTimer" to="Attack" method="_on_laser_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_exited"]
+[connection signal="timeout" from="Attacks/LaserAttack/LaserTimer" to="Attacks/LaserAttack" method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="Attacks/LaserAttack/LaserTimer/LaserAttackTimer" to="Attacks/LaserAttack" method="_on_laser_attack_timer_timeout"]
 
 [editable path="HurtBox"]

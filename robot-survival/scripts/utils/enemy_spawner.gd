@@ -50,7 +50,7 @@ func _on_timer_timeout() -> void:
 
 
 func get_random_position() -> Vector2:
-	view_port = get_viewport_rect().size * randf_range(0.7, 0.9)
+	view_port = get_viewport_rect().size * randf_range(0.7, 0.8)
 
 	top_left = Vector2(
 		player.global_position.x - view_port.x / 2,
