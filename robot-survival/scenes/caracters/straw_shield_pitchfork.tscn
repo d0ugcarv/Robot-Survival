@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djfm6lacukcjh"]
+[gd_scene load_steps=13 format=3 uid="uid://dvgeebjs1i6iq"]
 
 [ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/enemy.gd" id="1_lnsq5"]
 [ext_resource type="Material" uid="uid://bn1hjxmvdaayl" path="res://shaders/whiten.tres" id="2_4lph3"]
@@ -64,13 +64,12 @@ speed = 1800.0
 attack_damage = -5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
+z_index = 1
 material = ExtResource("2_4lph3")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_lnsq5")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(0, 4)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("4_61d0f")

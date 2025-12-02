@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 			last_direction = direction
 		
 		update_animation()
-	
+		
 		move_and_slide()
 
 

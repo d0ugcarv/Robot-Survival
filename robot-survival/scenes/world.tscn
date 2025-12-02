@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ncirp63swaqn" path="res://scenes/caracters/tiger_sickle.tscn" id="3_k0juu"]
 [ext_resource type="Script" uid="uid://2vug6umillfy" path="res://scripts/utils/spawn_info.gd" id="4_i7141"]
 [ext_resource type="PackedScene" uid="uid://bm1dexfh6e48t" path="res://scenes/ui/hud.tscn" id="6_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://dvgeebjs1i6iq" path="res://scenes/caracters/straw-shield-pitchfork.tscn" id="6_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://dvgeebjs1i6iq" path="res://scenes/caracters/straw_shield_pitchfork.tscn" id="6_7r4gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -232,6 +232,7 @@ enemy_num = 3.0
 metadata/_custom_type_script = "uid://2vug6umillfy"
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Enviroment" type="Node2D" parent="."]
 y_sort_enabled = true

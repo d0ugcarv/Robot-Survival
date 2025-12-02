@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://515knx13ptph"]
+[gd_scene load_steps=21 format=3 uid="uid://515knx13ptph"]
 
 [ext_resource type="Script" uid="uid://1quol10kn1hx" path="res://scripts/attacks/star.gd" id="1_rmutb"]
+[ext_resource type="Material" uid="uid://cmw187ncx4bmj" path="res://shaders/redden.tres" id="2_0ydnm"]
 [ext_resource type="Texture2D" uid="uid://b21twgxeaijbh" path="res://assets/sprites/attacks/197.png" id="2_sm05l"]
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/sprites/caracters/player/drone_shadow.png" id="3_sm05l"]
 
@@ -113,13 +114,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oe7r5"]
 radius = 17.0
 
-[node name="RotatingStar" type="Area2D"]
+[node name="Star" type="Area2D" groups=["attack"]]
 z_index = 6
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_rmutb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_0ydnm")
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_35dqb")
 autoplay = "default"

@@ -4,6 +4,8 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
+var enviroment: Node2D
+
 var time: float = 0.0
 
 var enemy_spawn: Enemy
@@ -27,6 +29,9 @@ var y_spawn: float
 @onready var timer: Timer = $Timer
 
 
+func _ready() -> void:
+	enviroment = get_tree().current_scene.find_child("Enviroment")
+
 func _on_timer_timeout() -> void:
 	time += 1
 	
@@ -44,7 +49,7 @@ func _on_timer_timeout() -> void:
 					
 					enemy_spawn.global_position = get_random_position()
 					
-					add_child(enemy_spawn)
+					enviroment.add_child(enemy_spawn)
 					
 					counter += 1
 
