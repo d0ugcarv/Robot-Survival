@@ -16,9 +16,9 @@ func get_random_target() -> Vector2:
 
 func _on_body_entered(body: Node2D) -> void:
 	if enemy_close.is_empty():
-		#laser_attack.attack()
-		pass
-		#star_attack.attack()
+		laser_attack.attack()
+		
+		star_attack.attack()
 	
 	if not enemy_close.has(body):
 		enemy_close.append(body)

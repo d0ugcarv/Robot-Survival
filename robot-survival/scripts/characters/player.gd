@@ -25,7 +25,9 @@ var last_direction: Vector2 = Vector2.ZERO
 
 # damage to de player
 @onready var hurt_box: Area2D = $HurtBox
-var invincibility_duration: float = 0.5
+var invincibility_duration: float = 0.6
+
+var apply_knockback_direction: Vector2
 
 signal stop_attack
 
@@ -113,3 +115,10 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 		update_health(body.attack_damage)
 		
 		hurt_box.start_invincibility(invincibility_duration)
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if direction != Vector2.ZERO:
+		apply_knockback_direction = (body.global_position - global_position).normalized()
+		
+		body.apply_knockback(apply_knockback_direction)

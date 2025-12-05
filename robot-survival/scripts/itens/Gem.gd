@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			position -= knockback * delta
 
+
 func _on_body_entered(body: Node2D) -> void:
 	body.experience_update(expirience)
 	

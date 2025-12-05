@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ka87enu8x30h"]
+
+[ext_resource type="Texture2D" uid="uid://dqrd2fogka6i0" path="res://assets/sprites/ui/FrameMap.png" id="1_mxt28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dprq4"]
+texture = ExtResource("1_mxt28")
+region_rect = Rect2(0, 164, 96, 90)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_dprq4")

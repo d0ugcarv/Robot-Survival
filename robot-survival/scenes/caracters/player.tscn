@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dl6ll3m7v7h15"]
+[gd_scene load_steps=40 format=3 uid="uid://dl6ll3m7v7h15"]
 
 [ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/sprites/caracters/player/elec_drone_idle.png" id="2_dyb74"]
@@ -95,7 +95,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -184,55 +184,55 @@ length = 2.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Shadow:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"death"]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("HealthBar:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/path = NodePath("HurtBox:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/path = NodePath("Death:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HealthBar:modulate")
+tracks/4/path = NodePath("Death:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -244,14 +244,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D:z_index")
+tracks/5/path = NodePath("AnimatedSprite2D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Death:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_85cvf"]
@@ -260,88 +272,100 @@ length = 2.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Shadow:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"death", &"explosion"]
+"times": PackedFloat32Array(0, 0.7, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("HealthBar:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.46666667, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 7, 8]
+"times": PackedFloat32Array(0, 0.7, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.56666666, 1.4333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HealthBar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2.3),
+"times": PackedFloat32Array(1.9666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Death:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Death:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.0333333, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite2D:z_index")
+tracks/6/path = NodePath("AnimatedSprite2D:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6, 1]
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Death:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pyqgn"]
@@ -351,33 +375,43 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3s82"]
-radius = 7.0
+radius = 8.062258
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yasf5"]
 radius = 133.00375
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcq65"]
+radius = 7.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 23
 motion_mode = 1
 platform_floor_layers = 4294967294
 script = ExtResource("1_qu7f3")
-health = 1000.0
+health = 10.0
 speed = 4000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 6
+modulate = Color(1, 1, 1, 0.985)
 material = ExtResource("2_rng84")
 sprite_frames = SubResource("SpriteFrames_j3s82")
 animation = &"death"
 autoplay = "idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Death" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_uem3h")
+hframes = 2
+
+[node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7)
 texture = ExtResource("4_mhcn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_mhcn4")
 
@@ -408,6 +442,7 @@ libraries = {
 speed_scale = 1.5
 
 [node name="HurtBox" parent="." instance=ExtResource("8_j3s82")]
+visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
@@ -415,6 +450,7 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_j3s82")
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -435,11 +471,21 @@ script = ExtResource("10_yasf5")
 [node name="StarAttack" type="Node2D" parent="Abilities"]
 script = ExtResource("11_nlopc")
 
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_fcq65")
+
 [connection signal="stop_attack" from="." to="Abilities/LaserAttack" method="_on_player_stop_attack"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_exited"]
 [connection signal="timeout" from="Abilities/LaserAttack/LaserTimer" to="Abilities/LaserAttack" method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="Abilities/LaserAttack/LaserTimer/LaserAttackTimer" to="Abilities/LaserAttack" method="_on_laser_attack_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 
 [editable path="HurtBox"]

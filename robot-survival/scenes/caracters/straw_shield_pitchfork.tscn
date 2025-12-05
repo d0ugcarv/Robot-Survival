@@ -54,6 +54,8 @@ radius = 9.0
 height = 26.0
 
 [node name="TigerSickle" type="CharacterBody2D" groups=["enemies"]]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
@@ -64,7 +66,6 @@ speed = 1800.0
 attack_damage = -5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
 material = ExtResource("2_4lph3")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_lnsq5")

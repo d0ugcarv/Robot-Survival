@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://db4k3kj67kibl"]
+
+[ext_resource type="Texture2D" uid="uid://c1xnsiy8lxii0" path="res://assets/sprites/ui/upgrade_options.png" id="1_srtbp"]
+[ext_resource type="Script" uid="uid://mjfxxcp4akk6" path="res://scripts/ui/item_option.gd" id="2_1re1g"]
+[ext_resource type="Texture2D" uid="uid://b3j5qu6yoneqf" path="res://assets/sprites/ui/Frame_07.png" id="2_4rg1y"]
+[ext_resource type="Texture2D" uid="uid://lxctnrelioh0" path="res://assets/sprites/attacks/197_star_icon.png" id="3_srtbp"]
+[ext_resource type="FontFile" uid="uid://d0xoqdidjl0k2" path="res://assets/CyberpunkCraftpixPixel.otf" id="4_srtbp"]
+
+[node name="ItemOption" type="TextureRect"]
+custom_minimum_size = Vector2(340, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_srtbp")
+script = ExtResource("2_1re1g")
+
+[node name="ItemBox" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 77.0
+offset_bottom = 81.0
+texture = ExtResource("2_4rg1y")
+
+[node name="Iterm" type="TextureRect" parent="ItemBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.083000004
+anchor_right = 0.92100006
+anchor_bottom = 0.90000004
+offset_top = 0.019999504
+offset_right = 137.33994
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("3_srtbp")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LblLevel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 21.0
+offset_right = 320.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_srtbp")
+theme_override_font_sizes/font_size = 18
+text = "Level"
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 1
+
+[node name="LblName" type="Label" parent="."]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 0
+offset_left = 83.0
+offset_top = 24.0
+offset_right = 146.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("4_srtbp")
+theme_override_font_sizes/font_size = 18
+text = "Name"
+vertical_alignment = 1
+
+[node name="LblDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 0
+offset_left = 83.0
+offset_top = 47.0
+offset_right = 321.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("4_srtbp")
+theme_override_font_sizes/font_size = 8
+text = "Desrcripion of item"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
