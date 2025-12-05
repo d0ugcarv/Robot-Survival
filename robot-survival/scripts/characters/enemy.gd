@@ -21,9 +21,10 @@ var indicator: Node2D
 @onready var drop_item: DropItens = $DropItem
 
 
-var knockback_on: bool = false
-var knockback_force: float = 150.0
+var knockback_force: float = 400.0
 var knockback: Vector2
+var knockback_time:float = 0.0
+@export var knockback_time_max: float
 
 
 func _ready() -> void:
@@ -34,8 +35,14 @@ func _physics_process(delta: float) -> void:
 	if is_alive and player != null:
 		direction_to_player = (player.position - position).normalized()
 		
-		if knockback_on:
+		if  knockback_time > 0.0:
+			knockback_time -= delta
+			
 			velocity += knockback * delta
+			
+			if knockback_time <= 0:
+				knockback = Vector2.ZERO
+				
 		else:
 			velocity = direction_to_player * speed * delta
 		
@@ -96,11 +103,7 @@ func spwan_attack_damage(damage: float) -> void:
 	indicator.play_damage(damage)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	knockback_on = true
+func apply_knockback(new_direction: Vector2) -> void:
+	knockback_time = 0.5
 	
-	knockback = -global_position.direction_to(body.position) * knockback_force
-
-
-func _on_area_2d_body_exited(_body: Node2D) -> void:
-	knockback_on = false
+	knockback = new_direction * knockback_force

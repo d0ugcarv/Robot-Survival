@@ -5,7 +5,6 @@ const coloren_duration: float = 0.2
 @onready var sprite_2d: Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D 
 
-
 var is_invincible = false
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D

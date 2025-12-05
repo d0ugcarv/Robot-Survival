@@ -6,7 +6,7 @@ var expereince: float = 0.0
 var enemies_kill: float = 0.0
 
 var timer: Timer
-var time_max: float = 3600 # time in seconds
+var time_max: float = 1800 # time in seconds
 var hour_counter: float = 0.0
 var hour_counter_is_active: bool
 
@@ -15,6 +15,7 @@ var victory_time: float = 600.0 # time need to win de game in seconds
 signal expereince_bar_update(new_experience:float)
 signal level_counter_update(new_level: float, experience_to_next_level: float)
 signal enemies_kill_counter_update(new_enemies_kill: float)
+signal end_game(victory: bool)
 
 
 func _ready() -> void:
@@ -37,11 +38,11 @@ func _process(_delta: float) -> void:
 	
 	if get_tree().get_nodes_in_group("player").is_empty():
 		if victory_time < (time_max - timer.time_left + hour_counter):
-			print("Stage Complete")
+			end_game.emit(true)
 		else:
-			print("Game Over")
+			end_game.emit(false)
 		
-		get_tree().quit()
+		get_tree().paused = true
 
 
 func expereince_update(new_experience:float) -> void:

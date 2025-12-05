@@ -12,6 +12,8 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 - [Tiger Warrior X45 Pack](https://doki-star-doki.itch.io/tiger-warrior-furry-pixel-art-pack-free-45-assets)
     - tiger-sickle.png
     - straw-shield-pitchfork.png
+    - leather-sword.png
+    - chainmail-battleaxe.png
 
 - [Assets Free Laser Bullets Pack 2020](https://boldoboldin.itch.io/enemy-drones-for-a-top-down-game)
 	- drone_shadow.png
@@ -32,13 +34,22 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 
 - [pixelcombat](https://heltonyan.itch.io/pixelcombat)
 	- DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav
+    - DSGNMisc_MOVEMENT-Whoosh Sweep_HY_PC-001.wav
 
 - [Free Pixel Game UI for Cyberpunk](https://free-game-assets.itch.io/free-gui-for-cyberpunk-pixel-art)
-	- Logo3.png used as base for:
-		- logo3_over.png
-		- logo3_under.png
-		- logo3_progress.png
+	- Logo3.png
 	- CyberpunkCraftpixPixel.otf
+    - FrameMap.png
+    - Frame_07.png
+    - Frame_09.png
+    - Frame_18.png
+    - Frame_37.png
+    - Frame_45.png
+    - Frame_54.png
+    - Frame_63.png
+    - Frame_72.png
+    - Frame_81.png
+    - Icon_23.png
 
 - [Skull & Bones Sprites](https://frodoundead.itch.io/skull-bones)
 	- Skull&Bones - FrodoUndead.png
