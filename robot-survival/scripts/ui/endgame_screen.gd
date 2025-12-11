@@ -13,3 +13,5 @@ func end_game(victory: bool) -> void:
 	
 	visible = true
 	
+	get_tree().paused = true
+	

@@ -29,8 +29,6 @@ var invincibility_duration: float = 0.6
 
 var apply_knockback_direction: Vector2
 
-signal stop_attack
-
 
 func _ready() -> void:
 	health_max = health
@@ -39,6 +37,7 @@ func _ready() -> void:
 	health_bar.value = health
 	
 	experience_to_next_level = next_level_experience()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -83,13 +82,13 @@ func update_health(value: float) -> void:
 		health_bar.value = health
 
 
-func experience_update(new_expirience: float) -> void:
+func update_experience(new_expirience: float) -> void:
 	experience += new_expirience
-	
+
 	if  experience >= experience_to_next_level:
 		experience -= experience_to_next_level
 		
-		level += 1
+		level += 1.0
 		
 		experience_to_next_level = next_level_experience()
 		
@@ -104,8 +103,6 @@ func next_level_experience() -> float:
 
 func die() -> void:
 	is_alive = false
-	
-	emit_signal("stop_attack")
 	
 	animation_player.play("death")
 

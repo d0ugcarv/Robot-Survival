@@ -1,6 +1,7 @@
 class_name Gem extends Area2D
 
 @export var expirience: float
+@export var health: float
 
 @export var knockback_force: float
 @export var knockback_timer: float
@@ -24,7 +25,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.experience_update(expirience)
+	if is_in_group("blue_gems"):
+		body.update_experience(expirience)
+	else:
+		body.update_health(health)
 	
 	knockback_on = true
 	

@@ -24,10 +24,17 @@ func _ready() -> void:
 	
 	match level:
 		1.0:
-			level = 1.0
 			penetretion = 1.0
 			speed = 200.0
 			attack_damage = 5.0
+		2.0:
+			penetretion = 1.0
+			speed = 200.0
+			attack_damage = 6.0
+		3.0:
+			penetretion = 2.0
+			speed = 300.0
+			attack_damage = 7.0
 
 	tween = create_tween()
 	

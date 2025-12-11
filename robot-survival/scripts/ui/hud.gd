@@ -72,11 +72,13 @@ func experience_bar_update(new_experience: float) -> void:
 
 
 func level_counter_update(new_level: float, experience_to_next_level) -> void:
-	level_display.text = "Level: " + str(int(new_level))
-	
 	experience_max_new_level = experience_to_next_level
 	
+	experience_bar.max_value = experience_max_new_level
+	
 	level_up()
+	
+	level_display.text = "Level: " + str(int(new_level))
 
 
 func enemies_kill_counter_update(new_enemies_kill: float) -> void:
@@ -93,7 +95,9 @@ func level_up() -> void:
 		
 		upgrade_option = item_option.instantiate()
 		
-		upgrade_option.selected_upgrade.connect(selected_upgrade)
+		upgrade_option.item = UpgradeDb.get_random_upgrade()
+		
+		upgrade_option.selected_upgrade.connect(selected_upgrade) # connects instance
 		
 		upgrade_options.add_child(upgrade_option)
 	
@@ -115,9 +119,14 @@ func level_up() -> void:
 	get_tree().paused = true
 
 
-func selected_upgrade(_upgrade: Variant) -> void:
+func selected_upgrade(upgrade: Variant) -> void:
+	# clean list of upgrades
 	upgrade_options_children = upgrade_options.get_children()
 	
+	UpgradeDb.upgrades_options.clear()
+	
+	UpgradeDb.update_collected_upgrades(upgrade)
+
 	for i in upgrade_options_children:
 		i.queue_free()
 	
@@ -128,8 +137,6 @@ func selected_upgrade(_upgrade: Variant) -> void:
 	get_tree().paused = false
 	
 	pause.visible = false
-	
-	experience_bar.max_value = experience_max_new_level
 
 
 func _input(event: InputEvent) -> void:

@@ -1,12 +1,12 @@
 extends Area2D
 
-var level: float = 1.0
-var attack_damage: float
-var speed: float 
+var level: float = 0.0
+var attack_damage: float = 0.0
+var speed: float = 0.0
 var knock_back: float
 
 @export var angle: float = 0.0 # in degrees
-@export var radius: float = 80.0
+@export var radius: float = 70.0
 
 var radius_counter: float = 0.0
 
@@ -21,9 +21,14 @@ func _ready() -> void:
 
 	match level:
 		1.0:
-			level = 1.0
-			speed = 0.8
+			speed = 0.7
 			attack_damage = 2.0
+		2.0:
+			speed = 0.8
+			attack_damage = 3.0
+		3.0:
+			speed = 0.9
+			attack_damage = 3.0
 	
 	tween = create_tween()
 	
@@ -32,6 +37,7 @@ func _ready() -> void:
 		).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	
 	tween.play()
+
 
 func _physics_process(delta: float) -> void:
 	angle += PI * delta * speed

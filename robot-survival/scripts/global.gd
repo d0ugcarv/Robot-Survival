@@ -62,3 +62,9 @@ func enemies_kill_counter() -> void:
 	
 	enemies_kill_counter_update.emit(enemies_kill)
 	
+
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("victory"):
+			end_game.emit(true)
+		elif event.is_action_pressed("defeat"):
+			end_game.emit(false)

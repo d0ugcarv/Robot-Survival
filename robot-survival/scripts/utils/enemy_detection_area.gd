@@ -3,8 +3,8 @@ extends Area2D
 #Enemy Related
 var enemy_close: Array[Enemy] = []
 
-@onready var laser_attack: Node2D = $"../Abilities/LaserAttack"
-@onready var star_attack: Node2D = $"../Abilities/StarAttack"
+@onready var energy_bullet_attack: Node2D = $"../Abilities/EnergyBulletAttack"
+@onready var orbiting_star_attack: Node2D = $"../Abilities/OrbitingStarAttack"
 
 
 func get_random_target() -> Vector2:
@@ -15,10 +15,10 @@ func get_random_target() -> Vector2:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	orbiting_star_attack.attack()
+	
 	if enemy_close.is_empty():
-		laser_attack.attack()
-		
-		star_attack.attack()
+		energy_bullet_attack.attack()
 	
 	if not enemy_close.has(body):
 		enemy_close.append(body)
