@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvgeebjs1i6iq"]
+[gd_scene load_steps=14 format=3 uid="uid://dvgeebjs1i6iq"]
 
 [ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/enemy.gd" id="1_lnsq5"]
 [ext_resource type="Material" uid="uid://bn1hjxmvdaayl" path="res://shaders/whiten.tres" id="2_4lph3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="5_obral"]
 [ext_resource type="PackedScene" uid="uid://baxcr56ohgr1l" path="res://scenes/utils/drop_item.tscn" id="6_amiei"]
 [ext_resource type="PackedScene" uid="uid://hpg7md76r7e6" path="res://scenes/itens/blue_gem.tscn" id="7_wg6gr"]
+[ext_resource type="PackedScene" uid="uid://6nuonf4l2drt" path="res://scenes/itens/red_gem.tscn" id="8_pifqt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nil"]
 radius = 4.0
@@ -53,7 +54,7 @@ _data = {
 radius = 9.0
 height = 26.0
 
-[node name="TigerSickle" type="CharacterBody2D" groups=["enemies"]]
+[node name="StrawShieldPitchfork" type="CharacterBody2D" groups=["enemies"]]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 4
@@ -92,8 +93,8 @@ collision_mask = 8
 shape = SubResource("CapsuleShape2D_e0y14")
 
 [node name="DropItem" parent="." instance=ExtResource("6_amiei")]
-item_drop = Array[PackedScene]([ExtResource("7_wg6gr"), null])
-item_drop_chance = Array[float]([60.0, 40.0])
+item_drop = Array[PackedScene]([ExtResource("7_wg6gr"), ExtResource("8_pifqt"), null])
+item_drop_chance = Array[float]([60.0, 1.0, 39.0])
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

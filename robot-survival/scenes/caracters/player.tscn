@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dl6ll3m7v7h15"]
+[gd_scene load_steps=41 format=3 uid="uid://dl6ll3m7v7h15"]
 
 [ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/sprites/caracters/player/elec_drone_idle.png" id="2_dyb74"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/sprites/caracters/player/drone_shadow.png" id="4_mhcn4"]
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="8_j3s82"]
 [ext_resource type="Script" uid="uid://qls0owxdlayb" path="res://scripts/utils/enemy_detection_area.gd" id="9_fcq65"]
-[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/laser_attack.gd" id="10_yasf5"]
-[ext_resource type="Script" uid="uid://dfgl3nojn7wfs" path="res://scripts/attacks/star_attack.gd" id="11_nlopc"]
+[ext_resource type="Script" uid="uid://dde56hnppgve7" path="res://scripts/utils/abilities.gd" id="10_nlopc"]
+[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/energy_bullet_attack.gd" id="10_yasf5"]
+[ext_resource type="Script" uid="uid://dfgl3nojn7wfs" path="res://scripts/attacks/orbiting_star_attack.gd" id="11_nlopc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcq65"]
 atlas = ExtResource("2_uem3h")
@@ -391,7 +392,7 @@ collision_mask = 23
 motion_mode = 1
 platform_floor_layers = 4294967294
 script = ExtResource("1_qu7f3")
-health = 10.0
+health = 100.0
 speed = 4000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -460,15 +461,16 @@ script = ExtResource("9_fcq65")
 shape = SubResource("CircleShape2D_yasf5")
 
 [node name="Abilities" type="Node2D" parent="."]
+script = ExtResource("10_nlopc")
 
-[node name="LaserAttack" type="Node2D" parent="Abilities"]
+[node name="EnergyBulletAttack" type="Node2D" parent="Abilities"]
 script = ExtResource("10_yasf5")
 
-[node name="LaserTimer" type="Timer" parent="Abilities/LaserAttack"]
+[node name="PeriodTimer" type="Timer" parent="Abilities/EnergyBulletAttack"]
 
-[node name="LaserAttackTimer" type="Timer" parent="Abilities/LaserAttack/LaserTimer"]
+[node name="FrequencyTimer" type="Timer" parent="Abilities/EnergyBulletAttack/PeriodTimer"]
 
-[node name="StarAttack" type="Node2D" parent="Abilities"]
+[node name="OrbitingStarAttack" type="Node2D" parent="Abilities"]
 script = ExtResource("11_nlopc")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -480,12 +482,11 @@ collision_mask = 4
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_fcq65")
 
-[connection signal="stop_attack" from="." to="Abilities/LaserAttack" method="_on_player_stop_attack"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="EnemyDetectionArea" method="_on_body_exited"]
-[connection signal="timeout" from="Abilities/LaserAttack/LaserTimer" to="Abilities/LaserAttack" method="_on_laser_timer_timeout"]
-[connection signal="timeout" from="Abilities/LaserAttack/LaserTimer/LaserAttackTimer" to="Abilities/LaserAttack" method="_on_laser_attack_timer_timeout"]
+[connection signal="timeout" from="Abilities/EnergyBulletAttack/PeriodTimer" to="Abilities/EnergyBulletAttack" method="_on_period_timer_timeout"]
+[connection signal="timeout" from="Abilities/EnergyBulletAttack/PeriodTimer/FrequencyTimer" to="Abilities/EnergyBulletAttack" method="_on_frequency_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 
 [editable path="HurtBox"]

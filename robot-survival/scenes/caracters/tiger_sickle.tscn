@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ncirp63swaqn"]
+[gd_scene load_steps=14 format=3 uid="uid://ncirp63swaqn"]
 
 [ext_resource type="Script" uid="uid://cmsq7sca4e1y5" path="res://scripts/characters/enemy.gd" id="1_80nil"]
 [ext_resource type="Texture2D" uid="uid://6ikuc4kfjw4n" path="res://assets/sprites/caracters/enemy/tiger-sickle.png" id="1_prdsq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="3_l80s2"]
 [ext_resource type="PackedScene" uid="uid://baxcr56ohgr1l" path="res://scenes/utils/drop_item.tscn" id="6_crs4b"]
 [ext_resource type="PackedScene" uid="uid://hpg7md76r7e6" path="res://scenes/itens/blue_gem.tscn" id="7_0aqah"]
+[ext_resource type="PackedScene" uid="uid://6nuonf4l2drt" path="res://scenes/itens/red_gem.tscn" id="8_dhct3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nil"]
 radius = 4.0
@@ -96,8 +97,8 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_e0y14")
 
 [node name="DropItem" parent="." instance=ExtResource("6_crs4b")]
-item_drop = Array[PackedScene]([ExtResource("7_0aqah"), null])
-item_drop_chance = Array[float]([60.0, 40.0])
+item_drop = Array[PackedScene]([ExtResource("7_0aqah"), ExtResource("8_dhct3"), null])
+item_drop_chance = Array[float]([60.0, 1.0, 39.0])
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

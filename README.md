@@ -17,10 +17,10 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 
 - [Assets Free Laser Bullets Pack 2020](https://boldoboldin.itch.io/enemy-drones-for-a-top-down-game)
 	- drone_shadow.png
-		- elec_drone_death.png
-		- elec_drone_idle.png
-		- elec_drone_atk.png
-		- electrical_area.png
+	- elec_drone_death.png
+	- elec_drone_idle.png
+	- elec_drone_atk.png
+	- electrical_area.png
 
 - [Explosion Animations Pack](https://ansimuz.itch.io/explosion-animations-pack)
 	- explosion.png
@@ -31,6 +31,7 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 
 - [Gems / Coins Free](https://laredgames.itch.io/gems-coins-free)
 	- spr_coin_azu.png
+    - spr_coin_roj
 
 - [pixelcombat](https://heltonyan.itch.io/pixelcombat)
 	- DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav

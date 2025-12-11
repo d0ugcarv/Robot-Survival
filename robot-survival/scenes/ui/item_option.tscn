@@ -21,6 +21,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_srtbp")
 script = ExtResource("2_1re1g")
+tween_intensity = 1.1
+tween_duration = 0.2
 
 [node name="ItemBox" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(60, 60)
@@ -31,7 +33,7 @@ offset_right = 77.0
 offset_bottom = 81.0
 texture = ExtResource("2_4rg1y")
 
-[node name="Iterm" type="TextureRect" parent="ItemBox"]
+[node name="ItemTexture" type="TextureRect" parent="ItemBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.075
@@ -49,27 +51,33 @@ expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="LblLevel" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.026470589
+anchor_top = 0.02
+anchor_right = -0.026470589
+anchor_bottom = 0.02
 offset_left = 256.0
 offset_top = 21.0
 offset_right = 320.0
 offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("4_srtbp")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "Level"
 horizontal_alignment = 2
 vertical_alignment = 1
-text_direction = 1
+text_direction = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="LblName" type="Label" parent="."]
 custom_minimum_size = Vector2(60, 20)
 layout_mode = 0
 offset_left = 83.0
-offset_top = 24.0
+offset_top = 23.0
 offset_right = 146.0
-offset_bottom = 44.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("4_srtbp")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "Name"
 vertical_alignment = 1
 
@@ -77,14 +85,14 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 0
 offset_left = 83.0
-offset_top = 47.0
+offset_top = 44.0
 offset_right = 321.0
-offset_bottom = 87.0
+offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("4_srtbp")
 theme_override_font_sizes/font_size = 8
 text = "Desrcripion of item"
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
