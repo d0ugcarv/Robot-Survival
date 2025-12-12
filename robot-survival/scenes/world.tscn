@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b28g5beccaidh"]
+[gd_scene load_steps=23 format=4 uid="uid://b28g5beccaidh"]
 
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/sprites/enviroment/forest_/forest_.png" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://ttdummtbg6me" path="res://assets/sprites/enviroment/forest_/forest_ [resources].png" id="2_rwgxs"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cyjqjuy27yul1" path="res://scenes/caracters/chainmail_battleaxe.tscn" id="8_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://hpg7md76r7e6" path="res://scenes/itens/blue_gem.tscn" id="9_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://6nuonf4l2drt" path="res://scenes/itens/red_gem.tscn" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://duyy24untplj3" path="res://scenes/itens/empty_gem.tscn" id="13_jhx03"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -305,3 +306,6 @@ expirience = 120.0
 
 [node name="RedGem" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(1268, 638)
+
+[node name="EmptyGem" parent="." instance=ExtResource("13_jhx03")]
+position = Vector2(1470, 718)

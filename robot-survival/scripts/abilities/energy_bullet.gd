@@ -29,11 +29,11 @@ func _ready() -> void:
 			attack_damage = 5.0
 		2.0:
 			penetretion = 1.0
-			speed = 200.0
-			attack_damage = 6.0
+			speed = 210.0
+			attack_damage = 5.0
 		3.0:
 			penetretion = 2.0
-			speed = 300.0
+			speed = 210.0
 			attack_damage = 7.0
 
 	tween = create_tween()

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xnsiy8lxii0" path="res://assets/sprites/ui/upgrade_options.png" id="1_srtbp"]
 [ext_resource type="Script" uid="uid://mjfxxcp4akk6" path="res://scripts/ui/item_option.gd" id="2_1re1g"]
 [ext_resource type="Texture2D" uid="uid://b3j5qu6yoneqf" path="res://assets/sprites/ui/Frame_07.png" id="2_4rg1y"]
-[ext_resource type="Texture2D" uid="uid://lxctnrelioh0" path="res://assets/sprites/attacks/197_star_icon.png" id="3_srtbp"]
+[ext_resource type="Texture2D" uid="uid://lxctnrelioh0" path="res://assets/sprites/abilities/197_star_icon.png" id="3_srtbp"]
 [ext_resource type="FontFile" uid="uid://d0xoqdidjl0k2" path="res://assets/CyberpunkCraftpixPixel.otf" id="4_srtbp"]
 
 [node name="ItemOption" type="TextureRect"]

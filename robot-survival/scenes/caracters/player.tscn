@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dl6ll3m7v7h15"]
+[gd_scene load_steps=42 format=3 uid="uid://dl6ll3m7v7h15"]
 
 [ext_resource type="Script" uid="uid://dfoole4myvody" path="res://scripts/characters/player.gd" id="1_qu7f3"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/sprites/caracters/player/elec_drone_idle.png" id="2_dyb74"]
@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bkv3ght6juqyi" path="res://scenes/utils/hurt_box.tscn" id="8_j3s82"]
 [ext_resource type="Script" uid="uid://qls0owxdlayb" path="res://scripts/utils/enemy_detection_area.gd" id="9_fcq65"]
 [ext_resource type="Script" uid="uid://dde56hnppgve7" path="res://scripts/utils/abilities.gd" id="10_nlopc"]
-[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/attacks/energy_bullet_attack.gd" id="10_yasf5"]
-[ext_resource type="Script" uid="uid://dfgl3nojn7wfs" path="res://scripts/attacks/orbiting_star_attack.gd" id="11_nlopc"]
+[ext_resource type="Script" uid="uid://nsc2nydeohdc" path="res://scripts/abilities/energy_bullet_attack.gd" id="10_yasf5"]
+[ext_resource type="Script" uid="uid://dfgl3nojn7wfs" path="res://scripts/abilities/orbiting_star_attack.gd" id="11_nlopc"]
+[ext_resource type="PackedScene" uid="uid://c37vlnlymw2n" path="res://scenes/abilities/empty_gem_effect.tscn" id="13_85cvf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcq65"]
 atlas = ExtResource("2_uem3h")
@@ -376,7 +377,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3s82"]
-radius = 8.062258
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yasf5"]
 radius = 133.00375
@@ -412,7 +413,6 @@ position = Vector2(0, 7)
 texture = ExtResource("4_mhcn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_mhcn4")
 
@@ -472,6 +472,8 @@ script = ExtResource("10_yasf5")
 
 [node name="OrbitingStarAttack" type="Node2D" parent="Abilities"]
 script = ExtResource("11_nlopc")
+
+[node name="Empty_gem_effect" parent="Abilities" instance=ExtResource("13_85cvf")]
 
 [node name="HitBox" type="Area2D" parent="."]
 visible = false
