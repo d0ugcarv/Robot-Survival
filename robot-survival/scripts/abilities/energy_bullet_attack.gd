@@ -1,6 +1,6 @@
 extends Node2D
 
-var energy_bullet: PackedScene = preload("res://scenes/attacks/energy_bullet.tscn")
+var energy_bullet: PackedScene = preload("res://scenes/abilities/energy_bullet.tscn")
 
 @onready var period_timer: Timer = $PeriodTimer
 @onready var frequency_timer: Timer = $PeriodTimer/FrequencyTimer

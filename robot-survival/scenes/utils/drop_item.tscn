@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://baxcr56ohgr1l"]
+[gd_scene load_steps=5 format=3 uid="uid://baxcr56ohgr1l"]
 
 [ext_resource type="Script" uid="uid://d0s4fbj2jg2xd" path="res://scripts/utils/drop_item.gd" id="1_b4qoe"]
+[ext_resource type="PackedScene" uid="uid://hpg7md76r7e6" path="res://scenes/itens/blue_gem.tscn" id="2_wh334"]
+[ext_resource type="PackedScene" uid="uid://6nuonf4l2drt" path="res://scenes/itens/red_gem.tscn" id="3_kj3gl"]
+[ext_resource type="PackedScene" uid="uid://duyy24untplj3" path="res://scenes/itens/empty_gem.tscn" id="4_lguls"]
 
 [node name="DropItem" type="Node2D"]
 script = ExtResource("1_b4qoe")
+item_drop = Array[PackedScene]([ExtResource("2_wh334"), ExtResource("3_kj3gl"), ExtResource("4_lguls"), null])
+item_drop_chance = Array[float]([60.0, 10.0, 2.0, 28.0])

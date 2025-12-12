@@ -1,39 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://hpg7md76r7e6"]
+[gd_scene load_steps=13 format=3 uid="uid://duyy24untplj3"]
 
-[ext_resource type="Script" uid="uid://cvsqke258wp70" path="res://scripts/itens/Gem.gd" id="1_xn7i2"]
-[ext_resource type="Texture2D" uid="uid://bf1i46utuf01i" path="res://assets/sprites/itens/spr_coin_azu.png" id="2_2kwj3"]
-[ext_resource type="AudioStream" uid="uid://luq4qx7s1mnu" path="res://assets/sfx/itens/DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav" id="3_2kwj3"]
+[ext_resource type="Script" uid="uid://cvsqke258wp70" path="res://scripts/itens/Gem.gd" id="1_ym20m"]
+[ext_resource type="Texture2D" uid="uid://cc5m1hvbey2wp" path="res://assets/sprites/itens/spr_coin_gri.png" id="2_ym20m"]
+[ext_resource type="AudioStream" uid="uid://luq4qx7s1mnu" path="res://assets/sfx/itens/DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav" id="3_ntnqa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7w3p"]
-atlas = ExtResource("2_2kwj3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r11i"]
+atlas = ExtResource("2_ym20m")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_74cak"]
-atlas = ExtResource("2_2kwj3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntnqa"]
+atlas = ExtResource("2_ym20m")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_metne"]
-atlas = ExtResource("2_2kwj3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_difbu"]
+atlas = ExtResource("2_ym20m")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpqox"]
-atlas = ExtResource("2_2kwj3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdyhi"]
+atlas = ExtResource("2_ym20m")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mytrp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r7w3p")
+"texture": SubResource("AtlasTexture_1r11i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_74cak")
+"texture": SubResource("AtlasTexture_ntnqa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_metne")
+"texture": SubResource("AtlasTexture_difbu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kpqox")
+"texture": SubResource("AtlasTexture_qdyhi")
 }],
 "loop": true,
 "name": &"idle",
@@ -142,11 +142,11 @@ _data = {
 &"pick_up": SubResource("Animation_r7w3p")
 }
 
-[node name="BlueGem" type="Area2D" groups=["itens"]]
+[node name="EmptyGem" type="Area2D" groups=["itens"]]
 collision_layer = 16
 collision_mask = 34
-script = ExtResource("1_xn7i2")
-gem_type = "blue_gem"
+script = ExtResource("1_ym20m")
+gem_type = "empty_gem"
 expirience = 2.0
 knockback_force = 200.0
 knockback_timer = 0.4
@@ -155,15 +155,15 @@ knockback_timer = 0.4
 sprite_frames = SubResource("SpriteFrames_mytrp")
 animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.59607893
+frame = 3
+frame_progress = 0.97237545
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_2kwj3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_2kwj3")
+stream = ExtResource("3_ntnqa")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

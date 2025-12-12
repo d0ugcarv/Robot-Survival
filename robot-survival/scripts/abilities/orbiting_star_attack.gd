@@ -1,6 +1,6 @@
 extends Node2D
 
-var orbiting_star: PackedScene = preload("res://scenes/attacks/orbiting_star.tscn")
+var orbiting_star: PackedScene = preload("res://scenes/abilities/orbiting_star.tscn")
 
 var level: float = 0.0
 var amount: float = 0.0

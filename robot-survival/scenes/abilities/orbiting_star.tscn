@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://515knx13ptph"]
 
-[ext_resource type="Script" uid="uid://1quol10kn1hx" path="res://scripts/attacks/orbiting_star.gd" id="1_m78ep"]
+[ext_resource type="Script" uid="uid://1quol10kn1hx" path="res://scripts/abilities/orbiting_star.gd" id="1_m78ep"]
 [ext_resource type="Material" uid="uid://cmw187ncx4bmj" path="res://shaders/redden.tres" id="2_jhwqu"]
-[ext_resource type="Texture2D" uid="uid://b21twgxeaijbh" path="res://assets/sprites/attacks/197.png" id="3_k6w1u"]
+[ext_resource type="Texture2D" uid="uid://b21twgxeaijbh" path="res://assets/sprites/abilities/197.png" id="3_k6w1u"]
 [ext_resource type="Texture2D" uid="uid://fbu6qdxrj8ml" path="res://assets/sprites/caracters/player/drone_shadow.png" id="4_ryl1e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x24ly"]

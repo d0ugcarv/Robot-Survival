@@ -17,7 +17,7 @@ func get_random_target() -> Vector2:
 func _on_body_entered(body: Node2D) -> void:
 	orbiting_star_attack.attack()
 	
-	if enemy_close.is_empty():
+	if !enemy_close.is_empty(): # To avoid targetless shots
 		energy_bullet_attack.attack()
 	
 	if not enemy_close.has(body):

@@ -31,7 +31,8 @@ Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na tu
 
 - [Gems / Coins Free](https://laredgames.itch.io/gems-coins-free)
 	- spr_coin_azu.png
-    - spr_coin_roj
+    - spr_coin_roj.png
+    - spr_coin_gri.png
 
 - [pixelcombat](https://heltonyan.itch.io/pixelcombat)
 	- DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav

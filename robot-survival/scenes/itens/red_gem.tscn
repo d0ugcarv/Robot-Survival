@@ -40,7 +40,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xn7i2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_um6ks"]
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_74cak"]
 length = 0.001
@@ -83,7 +84,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_r7w3p"]
 resource_name = "pick_up"
-length = 0.8
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,7 +92,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.36666667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -115,7 +116,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -143,9 +144,9 @@ _data = {
 
 [node name="RedGem" type="Area2D" groups=["itens"]]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_um6ks")
-expirience = 2.0
+gem_type = "red_gem"
 health = 20.0
 knockback_force = 200.0
 knockback_timer = 0.4
@@ -158,8 +159,8 @@ frame = 2
 frame_progress = 0.59607893
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.4, 0.4)
-shape = SubResource("CapsuleShape2D_xn7i2")
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_um6ks")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_16hyp")
@@ -170,4 +171,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_metne")
 }
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

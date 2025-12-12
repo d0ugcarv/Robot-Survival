@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bterymb0v4dox"]
 
-[ext_resource type="Script" uid="uid://br8j1w31uf8d7" path="res://scripts/attacks/energy_bullet.gd" id="1_4chcl"]
-[ext_resource type="Texture2D" uid="uid://bvwxjxejovm1j" path="res://assets/sprites/attacks/01.png" id="2_ttnvy"]
+[ext_resource type="Script" uid="uid://br8j1w31uf8d7" path="res://scripts/abilities/energy_bullet.gd" id="1_4chcl"]
+[ext_resource type="Texture2D" uid="uid://bvwxjxejovm1j" path="res://assets/sprites/abilities/01.png" id="2_ttnvy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kc268"]
 radius = 5.0

@@ -21,7 +21,7 @@ var indicator: Node2D
 @onready var drop_item: DropItens = $DropItem
 
 
-var knockback_force: float = 400.0
+var knockback_force: float = 2.0
 var knockback: Vector2
 var knockback_time:float = 0.0
 @export var knockback_time_max: float
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		if  knockback_time > 0.0:
 			knockback_time -= delta
 			
-			velocity += knockback * delta
+			velocity = knockback * speed * delta
 			
 			if knockback_time <= 0:
 				knockback = Vector2.ZERO

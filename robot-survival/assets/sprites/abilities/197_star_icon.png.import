@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b21twgxeaijbh"
-path="res://.godot/imported/197.png-7750037c5e5fd61afb3c7aabe6df725a.ctex"
+uid="uid://lxctnrelioh0"
+path="res://.godot/imported/197_star_icon.png-8191ee3d7531e87139c5f008ec279d2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/attacks/197.png"
-dest_files=["res://.godot/imported/197.png-7750037c5e5fd61afb3c7aabe6df725a.ctex"]
+source_file="res://assets/sprites/abilities/197_star_icon.png"
+dest_files=["res://.godot/imported/197_star_icon.png-8191ee3d7531e87139c5f008ec279d2a.ctex"]
 
 [params]
 
