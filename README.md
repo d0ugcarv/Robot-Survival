@@ -82,14 +82,6 @@ Um jogo ganha vida com a ajuda de muitos recursos criativos! Confira algumas das
 Acesse as páginas originais para consultar os autores, as licenças e as condições de utilização de cada recurso.
 
 
-## 👨‍💻 Autor
-
-**Douglas Cavalcanti de Carvalho**
-
-- 🐙 [GitHub](https://github.com/d0ugcarv)
-- 🎮 [Robot Survival — Repositório do projeto](https://github.com/d0ugcarv/Robot-Survival)
-
-
 ## 📜 Licença
 
 Consulte os arquivos de licença do repositório e as condições de uso dos recursos de terceiros antes de redistribuir o projeto.
