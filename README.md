@@ -1,63 +1,101 @@
-# Robot-Survival
-Jogo desenvolvido como projeto final da disciplina Engenharia de Sistema A na turma 1, ministrada pelo professor Gabriel Carvalho, durande o periodo 2025.2 da UERJ.
+# 🤖 Robot Survival
 
-## Authors and acknowledgment
+**⚔️ Sobreviva. Evolua. Enfrente as hordas.**
 
-<details>
-<summary> Assets fonts </summary><p>
+Um mundo desconhecido, criaturas perigosas e um robô consciente lutando pela própria sobrevivência! Em **Robot Survival**, você precisa enfrentar hordas de inimigos, aprimorar suas habilidades e resistir até alcançar a vitória.
 
-- [Assets Free Laser Bullets Pack 2020](https://wenrexa.itch.io/laser2020)
-    - 01.png
+---
 
-- [Tiger Warrior X45 Pack](https://doki-star-doki.itch.io/tiger-warrior-furry-pixel-art-pack-free-45-assets)
-    - tiger-sickle.png
-    - straw-shield-pitchfork.png
-    - leather-sword.png
-    - chainmail-battleaxe.png
+## 🎮 Sobre o jogo
 
-- [Assets Free Laser Bullets Pack 2020](https://boldoboldin.itch.io/enemy-drones-for-a-top-down-game)
-	- drone_shadow.png
-	- elec_drone_death.png
-	- elec_drone_idle.png
-	- elec_drone_atk.png
-	- electrical_area.png
+Robot Survival é um jogo 2D dos gêneros *Survival-like* e *Bullet Heaven*, com perspectiva *top-down*.
 
-- [Explosion Animations Pack](https://ansimuz.itch.io/explosion-animations-pack)
-	- explosion.png
+Você controla um robô consciente que desperta em um mundo misterioso, repleto de criaturas fantásticas, como orcs, slimes e esqueletos vivos. Em um universo onde a magia faz parte do cotidiano, cada confronto representa um novo desafio.
 
-- [fantasy_](https://kevins-moms-house.itch.io/fantasy)
-	- forest_.png
-	- forest_ [resources].png
+Prepare-se para enfrentar inimigos, coletar experiência, fortalecer seu personagem e descobrir até onde consegue sobreviver!
 
-- [Gems / Coins Free](https://laredgames.itch.io/gems-coins-free)
-	- spr_coin_azu.png
-    - spr_coin_roj.png
-    - spr_coin_gri.png
 
-- [pixelcombat](https://heltonyan.itch.io/pixelcombat)
-	- DSGNTonl_USABLE-Whimsy Coin_HY_PC-002.wav
-    - DSGNMisc_MOVEMENT-Whoosh Sweep_HY_PC-001.wav
+## 🛠️ Tecnologias utilizadas
 
-- [Free Pixel Game UI for Cyberpunk](https://free-game-assets.itch.io/free-gui-for-cyberpunk-pixel-art)
-	- Logo3.png
-	- CyberpunkCraftpixPixel.otf
-    - FrameMap.png
-    - Frame_07.png
-    - Frame_09.png
-    - Frame_18.png
-    - Frame_37.png
-    - Frame_45.png
-    - Frame_54.png
-    - Frame_63.png
-    - Frame_72.png
-    - Frame_81.png
-    - Icon_23.png
+| Tecnologia | Utilização |
+|---|---|
+| 🎮 [Godot Engine](https://godotengine.org/) | Desenvolvimento do jogo |
+| 💻 [GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html) | Programação das mecânicas e da lógica |
+| 🐙 [GitHub](https://github.com/) | Versionamento e hospedagem do código |
+| 📋 [Trello](https://trello.com/) | Planejamento e organização das tarefas |
 
-- [Skull & Bones Sprites](https://frodoundead.itch.io/skull-bones)
-	- Skull&Bones - FrodoUndead.png
 
-- [750 Effect and FX Pixel All](https://bdragon1727.itch.io/750-effect-and-fx-pixel-all)
-	- 197.png
+## 🚀 Como executar
 
-</p></details>
+Quer experimentar o projeto? Siga os passos abaixo!
 
+
+### 📋 Pré-requisitos
+
+- Godot Engine instalado.
+- Uma versão do Godot compatível com o projeto.
+
+
+### ⚙️ Instalação
+
+**1. Clone o repositório**
+
+```bash
+git clone https://github.com/d0ugcarv/Robot-Survival.git
+```
+
+**2. Entre na pasta do projeto**
+
+```bash
+cd Robot-Survival
+```
+
+**3. Importe o projeto no Godot**
+
+Abra o Godot Engine e importe o arquivo `project.godot`, localizado no diretório do jogo.
+
+**4. Dê o play!**
+
+Execute o projeto pelo editor e prepare-se para sobreviver!
+
+
+## 📖 Documentação
+
+O arquivo `Proposta_Software.pdf` contém a proposta original do projeto, incluindo a descrição geral, o escopo, as tecnologias, o planejamento das sprints e o backlog inicial.
+
+
+## 🎨 Créditos e assets
+
+Um jogo ganha vida com a ajuda de muitos recursos criativos! Confira algumas das fontes de assets identificadas no projeto:
+
+- [Wenrexa](https://wenrexa.itch.io/)
+- [Doki Star](https://doki-star-doki.itch.io/)
+- [Boldoboldin](https://boldoboldin.itch.io/)
+- [Ansimuz](https://ansimuz.itch.io/)
+- [Kevin's Mom's House](https://kevins-moms-house.itch.io/)
+- [Lared Games](https://laredgames.itch.io/)
+- [Heltonyan](https://heltonyan.itch.io/)
+- [Free Game Assets](https://free-game-assets.itch.io/)
+- [Frodo Undead](https://frodoundead.itch.io/)
+- [BDragon](https://bdragon1727.itch.io/)
+
+Acesse as páginas originais para consultar os autores, as licenças e as condições de utilização de cada recurso.
+
+
+## 👨‍💻 Autor
+
+**Douglas Cavalcanti de Carvalho**
+
+- 🐙 [GitHub](https://github.com/d0ugcarv)
+- 🎮 [Robot Survival — Repositório do projeto](https://github.com/d0ugcarv/Robot-Survival)
+
+
+## 📜 Licença
+
+Consulte os arquivos de licença do repositório e as condições de uso dos recursos de terceiros antes de redistribuir o projeto.
+
+---
+
+**🤖 Você está pronto para sobreviver?**
+
+*Entre no mundo de Robot Survival e descubra quanto tempo consegue resistir!* ⚔️

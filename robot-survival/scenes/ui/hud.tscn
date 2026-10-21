@@ -8,11 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dowafd7yl74lo" path="res://assets/sprites/ui/Skull&Bones - FrodoUndead.png" id="6_oj5la"]
 [ext_resource type="Theme" uid="uid://ka87enu8x30h" path="res://shaders/levelup_menu.tres" id="7_4jqwt"]
 [ext_resource type="AudioStream" uid="uid://vg52x21sspeh" path="res://assets/sfx/ui/DSGNMisc_MOVEMENT-Whoosh Sweep_HY_PC-001.wav" id="8_h022r"]
-[ext_resource type="Texture2D" uid="uid://dc345x3bi8qar" path="res://assets/sprites/ui/Icon_23.png" id="9_4jqwt"]
 [ext_resource type="PackedScene" uid="uid://bys2ajsigakb3" path="res://scenes/ui/endgame_screen.tscn" id="9_kicr4"]
+[ext_resource type="Script" uid="uid://cxwibdw844msx" path="res://scripts/ui/level_clock.gd" id="11_mj13f"]
 
 [node name="HUD" type="CanvasLayer"]
-process_mode = 3
 script = ExtResource("1_136eg")
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="."]
@@ -131,11 +130,8 @@ bus = &"SFX"
 [node name="EndgameScreen" parent="." instance=ExtResource("9_kicr4")]
 visible = false
 
-[node name="Pause" type="TextureRect" parent="."]
-visible = false
-offset_left = 864.0
-offset_top = 64.0
-offset_right = 904.0
-offset_bottom = 104.0
-scale = Vector2(2, 2)
-texture = ExtResource("9_4jqwt")
+[node name="LevelClock" type="Timer" parent="."]
+wait_time = 3600.0
+autostart = true
+script = ExtResource("11_mj13f")
+victory_time = 300.0

@@ -21,13 +21,13 @@ func _ready() -> void:
 
 	match level:
 		1.0:
-			speed = 0.7
+			speed = 0.5
 			attack_damage = 2.0
 		2.0:
-			speed = 0.8
-			attack_damage = 3.0
+			speed = 0.5
+			attack_damage = 2.0
 		3.0:
-			speed = 0.9
+			speed = 0.6
 			attack_damage = 3.0
 	
 	tween = create_tween()

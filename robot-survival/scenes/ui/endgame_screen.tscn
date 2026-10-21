@@ -1,9 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bys2ajsigakb3"]
+[gd_scene load_steps=7 format=3 uid="uid://bys2ajsigakb3"]
 
 [ext_resource type="Script" uid="uid://cy5d6aj2x5g5a" path="res://scripts/ui/endgame_screen.gd" id="1_a6qhq"]
 [ext_resource type="FontFile" uid="uid://d0xoqdidjl0k2" path="res://assets/CyberpunkCraftpixPixel.otf" id="1_pkcyw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6qhq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+shadow_offset = Vector2(-5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56j46"]
+bg_color = Color(0.60784316, 0.60784316, 0.60784316, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+shadow_offset = Vector2(-5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvn0x"]
+bg_color = Color(0.87058824, 0.87058824, 0.87058824, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+shadow_offset = Vector2(-5, 5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrxms"]
+
 [node name="EndgameScreen" type="Panel"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,17 +42,13 @@ grow_vertical = 2
 script = ExtResource("1_a6qhq")
 
 [node name="Message" type="Label" parent="."]
-process_mode = 2
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -509.5
-offset_top = -379.5
-offset_right = 509.5
-offset_bottom = 379.5
+offset_top = -232.5
+offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_pkcyw")
@@ -31,3 +57,51 @@ text = "Stage Complete"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="PauseButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 183.0
+offset_right = 134.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="MainMenu" type="Button" parent="PauseButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pkcyw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_a6qhq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_56j46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nvn0x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nrxms")
+text = "Main Menu"
+
+[node name="Exit" type="Button" parent="PauseButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pkcyw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_a6qhq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_56j46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nvn0x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nrxms")
+text = "Exit"
+
+[connection signal="pressed" from="PauseButtons/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseButtons/Exit" to="." method="_on_exit_pressed"]

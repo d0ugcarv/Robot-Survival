@@ -1,16 +1,13 @@
 extends CanvasLayer
 
+@onready var world: Node2D = $"../.."
 
 @onready var experience_bar: TextureProgressBar = $ExperienceBar
 @onready var level_display: Label = $ExperienceBar/LevelDisplay
 @onready var timer_display: Label = $ExperienceBar/TimerDisplay
 @onready var enemy_death_counter: Label = $ExperienceBar/EnemyDeathCounter
+@onready var level_clock: Timer = $LevelClock
 
-var time: float
-var time_seconds: float
-var time_seconds_str: String
-var time_minutes: float
-var time_minutes_str: String
 
 @onready var level_up_menu: Panel = $LevelUpMenu
 @onready var level_up_sound: AudioStreamPlayer2D = $LevelUpMenu/LevelUpSound
@@ -27,7 +24,6 @@ var options_max: float = 3.0
 
 var experience_max_new_level: float
 
-@onready var pause: TextureRect = $Pause
 @onready var endgame_screen: Panel = $EndgameScreen
 
 
@@ -48,23 +44,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	time = Global.time_max - Global.timer.time_left
-	
-	time_seconds = fmod(time, 60.0)
-	time_minutes = time / 60
-	
-	if time_seconds < 10.0:
-		time_seconds_str = "0" + str(int(time_seconds))
-	else:
-		time_seconds_str = str(int(time_seconds))
-		
-	if time_minutes < 10.0:
-		time_minutes_str = "0" + str(int(time_minutes))
-	else:
-		time_minutes_str = str(int(time_minutes + Global.hour_counter * 60))
-	
-	if !Global.timer.is_stopped():
-		timer_display.text = time_minutes_str + " : " + time_seconds_str
+	if !level_clock.is_stopped():
+		timer_display.text = level_clock.time_string()
 
 
 func experience_bar_update(new_experience: float) -> void:
@@ -87,7 +68,7 @@ func enemies_kill_counter_update(new_enemies_kill: float) -> void:
 
 func level_up() -> void:
 	level_up_sound.play()
-	
+	print("trs")
 	options = 0
 	
 	while options < options_max:
@@ -114,8 +95,6 @@ func level_up() -> void:
 		
 	tween.play()
 	
-	pause.visible = true
-	
 	get_tree().paused = true
 
 
@@ -135,17 +114,3 @@ func selected_upgrade(upgrade: Variant) -> void:
 	level_up_menu.position = Vector2(1210.0, 155.0)
 	
 	get_tree().paused = false
-	
-	pause.visible = false
-
-
-func _input(event: InputEvent) -> void:
-	if !level_up_menu.visible:
-		if event.is_action_pressed("pause") and get_tree().paused == false:
-			pause.visible = true
-			
-			get_tree().paused = true
-		elif event.is_action_pressed("pause") and get_tree().paused == true:
-			pause.visible = false
-			
-			get_tree().paused = false

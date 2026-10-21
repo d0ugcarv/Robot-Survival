@@ -107,6 +107,10 @@ func die() -> void:
 	animation_player.play("death")
 
 
+func player_died() -> void:
+	Global.end_game(false)
+
+
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if !hurt_box.is_invincible:
 		update_health(body.attack_damage)
@@ -119,3 +123,9 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 		apply_knockback_direction = (body.global_position - global_position).normalized()
 		
 		body.apply_knockback(apply_knockback_direction)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("next_level"):
+		print(experience_to_next_level)
+		update_experience(experience_to_next_level)

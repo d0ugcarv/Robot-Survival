@@ -44,7 +44,7 @@ func _on_timer_timeout() -> void:
 				
 				counter = 0
 				
-				while counter < spawn_info.enemy_num:
+				while counter < (spawn_info.enemy_num * Global.level):
 					enemy_spawn = spawn_info.enemy.instantiate()
 					
 					enemy_spawn.global_position = get_random_position()
